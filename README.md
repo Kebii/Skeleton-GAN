@@ -1,5 +1,5 @@
 # Skeleton-GAN
-A GCN-based GAN for skeleton sequence generation
+A GCN-based generative adversarial network for skeleton sequence generation
 ![image](https://github.com/Kebii/Skeleton-GAN/blob/master/vis/hello.gif)
 # Dependencies
 - Python >= 3.6
