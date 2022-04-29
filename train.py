@@ -30,7 +30,7 @@ def get_parser():
     parser = argparse.ArgumentParser(description='Skeleton_GAN')
     parser.add_argument(
         '--config',
-        default='./config/cfg.yaml',
+        default='./config/train_cfg.yaml',
         help='path to the configuration file')   
     parser.add_argument(
         '--model-save-name',
