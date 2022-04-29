@@ -1,0 +1,23 @@
+phase: train
+model_save_name: ./saved/sk_wgan_50T/weights/sk_wgan
+val_save_name: ./saved/sk_wgan_50T/skeleton
+
+
+train_feeder_args:
+  data_path: /mnt/data1/zjx/code/AGCN/data/ntu120/xset/train_data_joint.npy
+  label_path: /mnt/data1/zjx/code/AGCN/data/ntu120/xset/train_label.pkl
+
+gen_model_args:
+  in_channels: 3
+  joint_num: 25
+
+dis_model_args:
+  in_channels: 3
+  joint_num: 25
+
+base_lr: 0.1
+weight_decay: 0.0005
+epoch: 1000
+step: [500, 800]
+device: [0,1,2,3]
+batch_size: 1024
