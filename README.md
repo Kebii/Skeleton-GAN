@@ -8,7 +8,7 @@ A GCN-based generative adversarial network for skeleton sequence generation
 - pyyaml, tqdm, tensorboardX
 
 # Train
-Dataset: NTU-RGB+D 120
+Dataset: NTU-RGB+D 120  
 Data preparation can be refered to: https://github.com/kenziyuliu/MS-G3D
 ```
 python train.py --config ./config/train_cfg.yaml
