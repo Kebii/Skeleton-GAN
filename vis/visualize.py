@@ -21,7 +21,7 @@ def visualise(data, graph=None, is_3d=True, k=0):
     '''
     N, C, T, V = data.shape
 
-    # plt.ion()
+    plt.ion()
     fig = plt.figure()
     if is_3d:
         from mpl_toolkits.mplot3d import Axes3D
@@ -38,11 +38,6 @@ def visualise(data, graph=None, is_3d=True, k=0):
             fig.canvas.draw()
             plt.pause(0.01)
     else:
-        import sys
-        from os import path
-        sys.path.append(
-            path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
-        
         edge = graph
         pose = []
         for i in range(len(edge)):
