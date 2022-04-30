@@ -1,6 +1,6 @@
 phase: train
 model_save_name: ./saved/weights/sk_wgan
-val_save_name: ./saved/skeleton
+val_save_path: ./saved/skeleton
 
 
 train_feeder_args:
