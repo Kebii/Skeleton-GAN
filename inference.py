@@ -55,6 +55,8 @@ def get_parser():
         type=dict,
         default=dict(),
         help='the arguments of generator')
+    
+    return parser
 
 
 def getmodel(weight_path, arg):
