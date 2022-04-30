@@ -1,0 +1,9 @@
+phase: test
+weight: ./saved/sk_wgan_50T/weights/sk_wgan_gen-best.pt
+test_save_path: ./saved/sk_wgan_50T/skeleton
+device: [0]
+T: 300
+B: 10
+gen_model_args:
+  in_channels: 3
+  joint_num: 25
