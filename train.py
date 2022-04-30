@@ -34,11 +34,11 @@ def get_parser():
         help='path to the configuration file')   
     parser.add_argument(
         '--model-save-name',
-        default='./saved/sk_wgan/sk_wgan',
+        default='./saved/sk_wgan/weights/sk_wgan',
         help='model saved name')
     parser.add_argument(
-        '--val-save-name',
-        default='./saved/sk_wgan/fake_sk',
+        '--val-save-path',
+        default='./saved/sk_wgan/skeleton',
         help='fake skeleton saved name')
     parser.add_argument(
         '--phase',
