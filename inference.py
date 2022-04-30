@@ -62,13 +62,15 @@ def get_parser():
 def getmodel(weight_path, arg):
     model = ST_Gen(**arg.gen_model_args).cuda(arg.device[0])
     model = nn.DataParallel(model, device_ids=arg.device)
+
+    print("load weight from: "+weight_path)
     weights = torch.load(weight_path)
     model.load_state_dict(weights)
     model.eval()
     return model
 
 def generate_skeleton(model, arg):
-    input_X = Variable(torch.randn(arg.B, 3, arg.T, arg.gen_model_args.joint_num).float().cuda(arg.device[0]), requires_grad=False)
+    input_X = Variable(torch.randn(arg.B, 3, arg.T, arg.gen_model_args["joint_num"]).float().cuda(arg.device[0]), requires_grad=False)
     fake_X = model(input_X).cpu().detach().numpy()
     path = arg.test_save_path
     if not os.path.exists(path):
