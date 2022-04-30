@@ -253,11 +253,11 @@ def main(arg):
             state_dict_gen = generator_net.state_dict()
             state_dict_dis = discriminator_net.state_dict()
 
-            weights_gen = OrderedDict([[k.split('module.')[-1], v.cpu()] for k, v in state_dict_gen.items()])
+            weights_gen = OrderedDict([[k, v.cpu()] for k, v in state_dict_gen.items()])
             torch.save(weights_gen, arg.model_save_name + '_gen-' + str(i) + '.pt')
             print(arg.model_save_name + '_gen-' + str(i) + '.pt has been saved!')
 
-            weights_dis = OrderedDict([[k.split('module.')[-1], v.cpu()] for k, v in state_dict_dis.items()])
+            weights_dis = OrderedDict([[k, v.cpu()] for k, v in state_dict_dis.items()])
             torch.save(weights_dis, arg.model_save_name + '_dis-' + str(i) + '.pt')
             print(arg.model_save_name + '_dis-' + str(i) + '.pt has been saved!')
         if (i+1) % 10 == 0:
