@@ -135,7 +135,6 @@ def train(generator, discriminator, data_loader, optimizer_g, optimizer_d, sched
         loss_g.backward()
 
         optimizer_g.step()
-        scheduler_g.step()
 
         # train discriminator
         generator.eval()
@@ -155,7 +154,6 @@ def train(generator, discriminator, data_loader, optimizer_g, optimizer_d, sched
             # loss_d = loss_d + 10*loss_gp
             loss_d.backward()
             optimizer_d.step()
-        scheduler_d.step()
 
         end_time = time.time()
         epoch_time.update(end_time - start_time)
@@ -164,6 +162,8 @@ def train(generator, discriminator, data_loader, optimizer_g, optimizer_d, sched
 
         pbar.set_postfix(loss_g=float(loss_g.item()), loss_d=float(loss_d.item()), time=end_time-start_time)
         pbar.update(1)
+    scheduler_g.step()
+    scheduler_d.step()
     pbar.close()
 
     logger.add_scalar('train_loss_g', epoch_loss_g.avg, epoch)
